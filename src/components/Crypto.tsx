@@ -1,15 +1,24 @@
-import { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import axios from "axios";
 import TradingViewWidget from "./TradingViewWidget";
 import img from "../assets/btc.png";
 
-function Crypto() {
-  const [cryptoData, setCryptoData] = useState(null);
+interface CryptoData {
+  inr: number;
+  inr_24h_change: number;
+  usd: number;
+  usd_24h_change: number;
+}
+
+function Crypto(): JSX.Element {
+  const [cryptoData, setCryptoData] = useState<CryptoData | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
+        const response = await axios.get<{
+          bitcoin: CryptoData;
+        }>(
           "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=inr%2Cusd&include_24hr_change=true"
         );
         setCryptoData(response.data.bitcoin);
@@ -38,10 +47,10 @@ function Crypto() {
       <div className="mt-8 flex">
         <div>
           <div className="text-3xl font-semibold text-[#0B1426]">
-            {cryptoData && `$${cryptoData?.usd}`}
+            {cryptoData && `$${cryptoData.usd}`}
           </div>
           <div className="text-lg font-medium text-[#0B1426]">
-            {cryptoData && `₹ ${cryptoData?.inr}`}
+            {cryptoData && `₹ ${cryptoData.inr}`}
           </div>
         </div>
         <div className="flex items-center justify-center bg-green-300/20 rounded-lg p-2 h-10 ml-10">
@@ -49,7 +58,7 @@ function Crypto() {
             <polygon points="0,100 50,0 100,100" />
           </svg>
           <span className="ml-2 text-sm font-bold">
-            {cryptoData && `${cryptoData?.inr_24h_change.toFixed(2)}%`}
+            {cryptoData && `${cryptoData.inr_24h_change.toFixed(2)}%`}
           </span>
         </div>
         <div className="text-sm text-[#768396] ml-2 mt-2">(24H)</div>
