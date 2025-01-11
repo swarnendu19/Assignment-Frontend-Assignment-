@@ -1,4 +1,3 @@
-
 function Tokenomics() {
   return (
     <div className="bg-white h-max rounded-lg my-5 p-6">
