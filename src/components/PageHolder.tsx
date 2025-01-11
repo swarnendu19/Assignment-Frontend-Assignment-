@@ -1,39 +1,17 @@
-
-import About from "../components/About"
-import CradsPromo from "../components/CardsPromo"
-import Crypto from "../components/Crypto"
-import PageHolder from "../components/PageHolder"
-import PerformanceSection from "../components/PerformanceSection"
-import SentimentSection from "../components/SentimentSection"
-import ToggleSection from "../components/ToggleSection"
-import Tokenomics from "../components/Tokenomics"
-import TrendingCoins from "../components/TrendingCoins"
-import Team from "../components/TeamCard"
-
-
-function CoinPage() {
+function PageHolder() {
   return (
-    <div className="h-full w-screen bg-slate-200/40">
-      <PageHolder/>
-
-      <div className="w-screen flex">
-        <div className="w-8/12 ml-14">
-            <Crypto/>
-            <ToggleSection/>
-            <PerformanceSection/>
-            <SentimentSection/>
-            <About/>
-            <Tokenomics/>
-            <Team/>
-        </div>
-        <div className="w-4/12 mr-14">
-          <CradsPromo/>
-          <TrendingCoins/>
-        </div>
-        
+    <div className="flex lg:pl-14 ml-4 pt-4">
+      <div className="text-sm text-[#3E5765]">
+        Cryptocurrencies
+      </div>
+      <div className="text-sm text-[#3E5765]">
+        {' >> '} 
+      </div>
+      <div className="text-sm text-[#0F1629]">
+        Bitcoin
       </div>
     </div>
   )
 }
 
-export default CoinPage
+export default PageHolder;

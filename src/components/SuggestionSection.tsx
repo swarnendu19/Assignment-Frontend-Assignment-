@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+
+
 function SuggestionSection() {
   const [cryptoData, setCryptoData] = useState([]);
+
   useEffect(() => {
     axios
       .get("https://api.coingecko.com/api/v3/search/trending")
@@ -12,18 +15,21 @@ function SuggestionSection() {
         console.error("Error fetching data:", error);
       });
   }, []);
+
   return (
     <div className="bg-white h-max mt-10 p-14">
       <div>
         <div className="text-[#202020] text-2xl font-semibold">
           You May Also Like
         </div>
+
         <div className="mt-4 flex justify-between overflow-x-scroll overflow-auto  ">
           {(cryptoData as any[]).slice(0, 5).map((crypto, index) => (
             <CryptoCard key={index} cryptoData={crypto.item} />
           ))}
         </div>
            
+
         <div className="text-[#202020] text-2xl font-semibold mt-6">
           Trending Coins
         </div>
@@ -36,8 +42,10 @@ function SuggestionSection() {
     </div>
   );
 }
+
 function CryptoCard({ cryptoData }: any) {
   console.log("Sparkline URL:", cryptoData.sparkline);
+
   return (
     <div className="w-[300px] rounded-2xl p-5 border-2 my-2 mr-2">
       <div className="flex items-center space-x-2">
@@ -77,4 +85,5 @@ function CryptoCard({ cryptoData }: any) {
     </div>
   );
 }
+
 export default SuggestionSection;

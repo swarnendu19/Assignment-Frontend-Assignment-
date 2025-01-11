@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, memo } from 'react';
 
 function TradingViewWidget() {
