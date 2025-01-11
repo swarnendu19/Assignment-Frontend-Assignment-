@@ -1,7 +1,7 @@
 import { FaArrowRight } from "react-icons/fa";
 import promoimg from "../assets/promoimg.png";
 
-function CardsPromo() {
+function CradsPromo() {
   return (
     <div className="mt-4 bg-[#0052FE] text-white h-[515px] w-[426px] rounded-2xl px-10 py-8 ml-4 text-center">
       <div className="">
@@ -16,7 +16,7 @@ function CardsPromo() {
       </div>
       <div className="flex justify-center">
 
-      <div className="flex justify-center mt-8 bg-white text-[#0F1629] rounded-xl py-3 w-[237px] text-center ">
+      <div className="flex justify-center mt-8 bg-white text-[#0F1629] rounded-xl py-3 w-[237px] text-center cursor-pointer">
         <button className="font-medium"> 
           Get Started for FREE
         </button>
@@ -30,4 +30,4 @@ function CardsPromo() {
   );
 }
 
-export default CardsPromo;
+export default CradsPromo;  
