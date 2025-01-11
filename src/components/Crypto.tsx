@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import axios from "axios";
 import TradingViewWidget from "./TradingViewWidget";
@@ -34,7 +33,7 @@ function Crypto(): JSX.Element {
   }, []);
 
   return (
-    <div className="bg-white h-max rounded-lg ml-14 my-4 p-6">
+    <div className="bg-white h-max rounded-lg my-4 p-6">
       <div className="flex items-center">
         <div>
           <img src={img} className="w-9" alt="Bitcoin" />
@@ -88,7 +87,7 @@ function Crypto(): JSX.Element {
           <div>All</div>
         </div>
       </div>
-      <div className="h-[400px]">
+      <div className="h-[420px]">
         <TradingViewWidget />
       </div>
     </div>
